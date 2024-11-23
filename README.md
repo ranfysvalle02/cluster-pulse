@@ -81,6 +81,8 @@ At the core of LLMs lies the **attention mechanism**, a pivotal component that d
 
 ### The "Lost in the Middle" Phenomenon
 
+![](https://neurolabx.com/wp-content/uploads/2022/07/attention-machine-learning.png)
+
 The term "lost in the middle" aptly describes the situation where the LLM processes the beginning and end of your input data but neglects the middle portion. This can occur due to several factors:
 
 - **Sequential Processing Bias**: LLMs often prioritize the beginning and end of the input, potentially overlooking the central sections.
