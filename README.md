@@ -141,7 +141,7 @@ As AI continues to advance, so too will our methods for optimizing interactions 
 
 As we delve deeper into optimizing interactions with Large Language Models (LLMs), understanding and leveraging advanced attention mechanisms can significantly enhance performance, especially when dealing with extensive datasets. This appendix explores cutting-edge techniques like **Longformer**, **Sparse Attention**, and other innovative methods designed to overcome the limitations discussed earlier.
 
-#### **1. Longformer: Extending the Context Window**
+#### **1. [Longformer](https://arxiv.org/abs/2004.05150): Extending the Context Window**
 
 **Longformer** is an extension of the Transformer architecture tailored to handle longer sequences of text efficiently. Traditional Transformers, including models like GPT-4, struggle with very long inputs due to their quadratic complexity in the attention mechanism. Longformer addresses this challenge through the implementation of **sliding window attention**, allowing the model to process longer texts without a proportional increase in computational resources.
 
@@ -153,7 +153,7 @@ As we delve deeper into optimizing interactions with Large Language Models (LLMs
 - **Scalability**: Efficiently processes longer texts without exhausting memory resources.
 - **Flexibility**: Combines local and global attention mechanisms to maintain context where it's most needed.
 
-#### **2. Sparse Attention: Optimizing Focused Processing**
+#### **2. [Sparse Attention: Optimizing Focused Processing](https://arxiv.org/abs/2406.15486)**
 
 **Sparse Attention** mechanisms aim to reduce the computational overhead of processing long sequences by limiting the number of attention connections. Unlike dense attention, where every token attends to every other token, sparse attention introduces patterns that determine which tokens interact, significantly cutting down the number of computations required.
 
@@ -165,7 +165,7 @@ As we delve deeper into optimizing interactions with Large Language Models (LLMs
 - **Efficiency**: Decreases memory usage and increases processing speed, making it feasible to handle larger inputs.
 - **Customization**: Can be tailored to specific tasks, ensuring that the most relevant parts of the input are prioritized.
 
-#### **3. Reformer: Memory-Efficient Transformers**
+#### **3. [Reformer: Memory-Efficient Transformers](https://arxiv.org/pdf/2001.04451)**
 
 **Reformer** introduces several innovations to make Transformer models more memory-efficient and faster, enabling them to handle longer sequences without compromising performance.
 
@@ -177,7 +177,7 @@ As we delve deeper into optimizing interactions with Large Language Models (LLMs
 - **Memory Efficiency**: Significantly reduces the memory footprint, allowing for training and inference on longer sequences.
 - **Speed**: Enhances processing speed by optimizing attention computations.
 
-#### **4. Performer: Linear Attention Mechanisms**
+#### **4. [Performer: Linear Attention Mechanisms](https://arxiv.org/abs/2009.14794)**
 
 **Performer** introduces **linear attention**, which scales linearly with the sequence length, as opposed to the quadratic scaling seen in traditional attention mechanisms. This innovation makes it feasible to handle very long sequences with reduced computational complexity.
 
@@ -189,7 +189,7 @@ As we delve deeper into optimizing interactions with Large Language Models (LLMs
 - **Scalability**: Easily handles long sequences, making it suitable for tasks like document processing and large-scale data analysis.
 - **Performance**: Maintains high accuracy while significantly reducing computational requirements.
 
-#### **5. Memory-Augmented Networks: Extending Model Capacity**
+#### **5. [Memory-Augmented Networks: Extending Model Capacity](https://arxiv.org/html/2312.06141v2)**
 
 **Memory-Augmented Networks** integrate external memory components with LLMs, allowing them to store and retrieve information beyond their inherent context window. This approach effectively extends the model's capacity to handle larger datasets without overloading the attention mechanism.
 
