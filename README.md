@@ -169,82 +169,83 @@ To effectively address the **"lost in the middle"** problem and ensure comprehen
 
 **Parallel Processing with Ray**
 
-    **Why It Matters:**  
-    Utilizing **Ray** enables seamless distribution of data processing tasks across multiple CPU cores. This parallelization accelerates handling large datasets, ensuring scalability and maintaining system responsiveness as data volumes grow.
+**Why It Matters:**  
+Utilizing **Ray** enables seamless distribution of data processing tasks across multiple CPU cores. This parallelization accelerates handling large datasets, ensuring scalability and maintaining system responsiveness as data volumes grow.
 
-    ```python
-    import ray
+```python
+import ray
 
-    # Initialize Ray with the desired number of CPUs
-    ray.init(num_cpus=NUM_CPUS)
-    ```
+# Initialize Ray with the desired number of CPUs
+ray.init(num_cpus=NUM_CPUS)
+```
 
 **Robust Retry Mechanisms with Tenacity**
 
-    **Why It Matters:**  
-    **Tenacity** provides a resilient retry mechanism that handles transient failures gracefully, such as network issues. This ensures the processing pipeline remains uninterrupted, maintaining data integrity and continuity.
+**Why It Matters:**  
+**Tenacity** provides a resilient retry mechanism that handles transient failures gracefully, such as network issues. This ensures the processing pipeline remains uninterrupted, maintaining data integrity and continuity.
 
-    ```python
-    from tenacity import Retrying, wait_exponential, stop_after_attempt, retry_if_exception_type
+```python
+from tenacity import Retrying, wait_exponential, stop_after_attempt, retry_if_exception_type
 
-    retrying = Retrying(
-        retry=retry_if_exception_type(Exception),
-        wait=wait_exponential(multiplier=1, max=10),
-        stop=stop_after_attempt(5),
-        reraise=True
-    )
-    ```
+retrying = Retrying(
+    retry=retry_if_exception_type(Exception),
+    wait=wait_exponential(multiplier=1, max=10),
+    stop=stop_after_attempt(5),
+    reraise=True
+)
+```
 
 - **Comprehensive Logging and Monitoring**
 
-    **Why It Matters:**  
-    Using Python’s `logging` module offers detailed insights into the processing workflow. Logs are outputted to both a file and the console, facilitating real-time monitoring and easier debugging.
+**Why It Matters:**  
+Using Python’s `logging` module offers detailed insights into the processing workflow. Logs are outputted to both a file and the console, facilitating real-time monitoring and easier debugging.
 
-    ```python
-    import logging
+```python
+import logging
 
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[
-        logging.FileHandler('processing.log'),
-        logging.StreamHandler()
-    ])
-    logger = logging.getLogger(__name__)
-    ```
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[
+    logging.FileHandler('processing.log'),
+    logging.StreamHandler()
+])
+logger = logging.getLogger(__name__)
+```
 
 - **Strategic Batch Processing**
 
-    **Why It Matters:**  
-    Dividing the dataset into manageable batches ensures that the Large Language Model (LLM) receives appropriately sized inputs. This approach prevents resource exhaustion and maintains consistent processing focus.
+**Why It Matters:**  
+Dividing the dataset into manageable batches ensures that the Large Language Model (LLM) receives appropriately sized inputs. This approach prevents resource exhaustion and maintains consistent processing focus.
 
-    ```python
-    # Split data into batches
-    batches = [formatted_text[i:i + BATCH_SIZE] for i in range(0, len(formatted_text), BATCH_SIZE)]
-    ```
+```python
+# Split data into batches
+batches = [formatted_text[i:i + BATCH_SIZE] for i in range(0, len(formatted_text), BATCH_SIZE)]
+```
 
 - **Secure and Configurable Setup**
 
-    **Why It Matters:**  
-    Managing sensitive information through environment variables enhances security by avoiding hard-coded credentials. A modular configuration allows easy adjustments to parameters like batch size and concurrency levels.
+**Why It Matters:**  
+Managing sensitive information through environment variables enhances security by avoiding hard-coded credentials. A modular configuration allows easy adjustments to parameters like batch size and concurrency levels.
 
-    ```python
-    import os
+```python
+import os
 
-    # MongoDB Configuration
-    MONGODB_URI = os.getenv("MONGODB_URI", "your_mongodb_uri_here")
-    ```
+# MongoDB Configuration
+MONGODB_URI = os.getenv("MONGODB_URI", "your_mongodb_uri_here")
+```
 
 - **Focused Prompt Design for LLM Interaction**
 
-    **Why It Matters:**  
-    Crafting precise prompts ensures the LLM generates accurate and relevant responses. Clear instructions minimize ambiguity, leading to more reliable data processing outcomes.
+**Why It Matters:**  
+Crafting precise prompts ensures the LLM generates accurate and relevant responses. Clear instructions minimize ambiguity, leading to more reliable data processing outcomes.
 
-    ```python
-    prompt = (
-        "Given the [context]\n\n"
-        f"[context]\n{context}\n"
-        "\n[/context]\n\n"
-        "RESPOND WITH A LIST OF THE MOVIE TITLES ONLY, SEPARATED BY newline `\n` and enclosed in double quotes."
-    )
-    ```
+```python
+prompt = (
+    "Given the [context]\n\n"
+    f"[context]\n{context}\n"
+    "\n[/context]\n\n"
+    "RESPOND WITH A LIST OF THE MOVIE TITLES ONLY, SEPARATED BY newline `\n` and enclosed in double quotes."
+)
+```
+
 ### **Insights from Real Results**
 #### **Test Results Across 10 Runs:**
 | Run | Processed Documents | Target (1,000) | Success Rate (%) |
