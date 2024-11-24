@@ -38,22 +38,6 @@ Yes, large language models (LLMs) can sometimes "get lost in the middle," partic
 
 ---
 
-### **Mitigation Strategies**
-1. **Segment the Input**:
-   - Break down tasks into smaller, more focused queries to help the model stay on track.
-
-2. **Use Explicit Instructions**:
-   - Provide clear, step-by-step guidance to minimize ambiguity and maintain focus.
-
-3. **Leverage Summaries**:
-   - Summarize earlier parts of the input to remind the model of critical context.
-
-4. **Iterative Refinement**:
-   - Review and refine outputs in multiple iterations, asking the model to improve specific parts of the response.
-
-5. **Chain-of-Thought (CoT) Reasoning**:
-   - Encourage the model to articulate intermediate steps or reasoning explicitly to maintain coherence.
-
 ### The Scenario: Expecting 1000, Receiving 442
 
 Imagine you're working on a project that involves processing a list of **1,000 movie titles** stored in a MongoDB database. Your goal is to retrieve and display all these titles using a Python script that interacts with an LLM. Here's a simplified version of the script you're using:
