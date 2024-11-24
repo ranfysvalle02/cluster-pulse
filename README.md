@@ -167,7 +167,7 @@ Understanding the root causes allows us to implement strategies to ensure more c
 
 ---
 
-## Enhancing Reliability with Parallel Processing and Retry Mechanisms
+## `demo-ray.py`: Enhancing Reliability with Parallel Processing and Retry Mechanisms
 
 To effectively address the **"lost in the middle"** problem and ensure comprehensive processing of large datasets, integrating parallel processing with robust retry mechanisms is essential. By leveraging tools like **Ray** for parallelization and **Tenacity** for handling retries, developers can significantly enhance both the performance and reliability of their workflows when interacting with Large Language Models (LLMs).
 
