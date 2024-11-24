@@ -111,7 +111,77 @@ if __name__ == "__main__":
         print(f"An error occurred: {e}")
 ```
 
-Despite your expectations, the model returns only **442 movie titles** instead of the full 1,000. This discrepancy can be frustrating and perplexing, especially when your input data seems to fit within the model's context window. Let's delve into why this happens.
+Despite your expectations, the model returns only **442 movie titles** instead of the full 1,000. This discrepancy can be frustrating and perplexing, especially when your input data seems to fit within the model's context window. 
+
+## **Beyond Spray and Pray**
+
+### **Retry Mechanisms: Handling Imperfections**
+While parallelization boosts efficiency, LLMs and data pipelines aren’t perfect. Failures—like dropped batches or incomplete processing—are inevitable. This is where **retry mechanisms** come in.
+
+#### **Why Retry?**
+1. **Network hiccups** (e.g., MongoDB connection issues).
+2. **Hardware resource contention** in distributed systems.
+3. **Model limitations** in handling all inputs effectively.
+
+---
+
+### **Task Design: Ask the Right Questions**
+The most crucial part of using LLMs effectively lies in **task design**. Carelessly throwing data at an LLM—"spray and pray"—wastes resources and produces mediocre results. Instead, design tasks thoughtfully, keeping the model’s strengths and weaknesses in mind.
+
+#### **Attention Mechanism: A Double-Edged Sword**
+LLMs rely on the **attention mechanism**, focusing on the most relevant parts of the input. However:
+- **Not all input gets equal focus.**
+- **Complex or long sequences may lead to overlooked details.**
+
+To counteract these limitations:
+- **Define acceptance criteria.**
+  - Example: Set a threshold for success. In this case, we aimed for **900+ out of 1,000 documents processed**.
+- **Break tasks into smaller, manageable chunks.**
+  - This "ensures" no single part of the input is deprioritized. (minimize loss)
+- **Monitor and validate outputs.**
+  - Use logging and metrics to ensure you meet quality standards.
+
+---
+
+### **Insights from Real Results**
+#### **Test Results Across 10 Runs:**
+| Run | Processed Documents | Target (1,000) | Success Rate (%) |
+|-----|---------------------|----------------|------------------|
+| 1   | 982                 | 1000           | 98.2             |
+| 2   | 985                 | 1000           | 98.5             |
+| 3   | 982                 | 1000           | 98.2             |
+| 4   | 978                 | 1000           | 97.8             |
+| 5   | 950                 | 1000           | 95.0             |
+| 6   | 993                 | 1000           | 99.3             |
+| 7   | 976                 | 1000           | 97.6             |
+| 8   | 974                 | 1000           | 97.4             |
+| 9   | 954                 | 1000           | 95.4             |
+| 10  | 975                 | 1000           | 97.5             |
+
+#### **Key Takeaways:**
+1. **Retry mechanisms** ensured minimal drop-offs from the target.
+2. **Parallelization** maintained high throughput.
+3. **Attention to task design** enabled consistent processing with a robust acceptance threshold.
+
+---
+
+### **Best Practices for Using LLMs**
+1. **Define Goals Clearly**:
+   - Know what "success" looks like. Use metrics to quantify performance (e.g., 900/1,000 processed documents).
+2. **Adopt Parallelization**:
+   - Tools like Ray can supercharge your workflows, distributing tasks efficiently.
+3. **Implement Retry Mechanisms**:
+   - Be ready for failure and have a system in place to recover gracefully.
+4. **Set Acceptance Criteria**:
+   - Don’t assume perfect results. Define thresholds that align with your use case.
+5. **Iterate and Validate**:
+   - Continuously improve workflows based on outcomes and logs.
+
+---
+
+LLMs are transformative, but they’re not magic. Success lies in **asking the right questions**, designing tasks thoughtfully, and leveraging tools like **parallelization** and **retry mechanisms**. By applying these strategies, you can harness the full potential of LLMs while maintaining control over quality and efficiency.
+
+What’s your current acceptance threshold? Are you measuring what matters?
 
 ### Understanding Attention Mechanisms
 
