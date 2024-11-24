@@ -197,7 +197,7 @@ retrying = Retrying(
 )
 ```
 
-- **Comprehensive Logging and Monitoring**
+**Comprehensive Logging and Monitoring**
 
 **Why It Matters:**  
 Using Python’s `logging` module offers detailed insights into the processing workflow. Logs are outputted to both a file and the console, facilitating real-time monitoring and easier debugging.
@@ -212,7 +212,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 ```
 
-- **Strategic Batch Processing**
+**Strategic Batch Processing**
 
 **Why It Matters:**  
 Dividing the dataset into manageable batches ensures that the Large Language Model (LLM) receives appropriately sized inputs. This approach prevents resource exhaustion and maintains consistent processing focus.
@@ -222,7 +222,7 @@ Dividing the dataset into manageable batches ensures that the Large Language Mod
 batches = [formatted_text[i:i + BATCH_SIZE] for i in range(0, len(formatted_text), BATCH_SIZE)]
 ```
 
-- **Secure and Configurable Setup**
+**Secure and Configurable Setup**
 
 **Why It Matters:**  
 Managing sensitive information through environment variables enhances security by avoiding hard-coded credentials. A modular configuration allows easy adjustments to parameters like batch size and concurrency levels.
@@ -234,7 +234,7 @@ import os
 MONGODB_URI = os.getenv("MONGODB_URI", "your_mongodb_uri_here")
 ```
 
-- **Focused Prompt Design for LLM Interaction**
+**Focused Prompt Design for LLM Interaction**
 
 **Why It Matters:**  
 Crafting precise prompts ensures the LLM generates accurate and relevant responses. Clear instructions minimize ambiguity, leading to more reliable data processing outcomes.
