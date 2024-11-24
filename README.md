@@ -87,9 +87,11 @@ To counteract these limitations:
 
 ---
 
-## LLMs are Math not Magic
+![](https://i.imgflip.com/996o4c.jpg)
 
-LLMs are transformative, but they’re not magic. Success lies in **asking the right questions**, designing tasks thoughtfully, and leveraging tools like **parallelization** and **retry mechanisms**. By applying these strategies, you can harness the full potential of LLMs while maintaining control over quality and efficiency.
+## LLMs are Math not Magic?
+
+LLMs are transformative, but they’re not magic (or are they?). The "blackbox" nature of LLMs and their probabilistic nature makes "controlling them" tricky. Success lies in establishing ahead of time a tolerance threshold (DO NOT EXPECT PERFECT), **asking the right questions**, designing tasks thoughtfully, and leveraging tools like **parallelization** and **retry mechanisms**. By applying these strategies, you can harness the full potential of LLMs while maintaining control over quality and efficiency.
 
 What questions are you asking? What’s your current acceptance threshold? Are you measuring what matters?
 
