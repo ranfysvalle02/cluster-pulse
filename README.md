@@ -87,6 +87,8 @@ To counteract these limitations:
 
 ---
 
+## LLMs are Math not Magic
+
 LLMs are transformative, but they’re not magic. Success lies in **asking the right questions**, designing tasks thoughtfully, and leveraging tools like **parallelization** and **retry mechanisms**. By applying these strategies, you can harness the full potential of LLMs while maintaining control over quality and efficiency.
 
 What questions are you asking? What’s your current acceptance threshold? Are you measuring what matters?
